@@ -144,9 +144,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-charcoal-600/60 bg-charcoal-900/45 overflow-hidden">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y divide-charcoal-600/40 lg:divide-y-0 lg:divide-x lg:divide-charcoal-600/40">
-              {firstHoursSteps.map((step) => (
+              {firstHoursSteps.map((step, index) => (
                 <div key={step.title} className="px-4 py-4 sm:px-5 sm:py-5 text-center lg:text-left">
-                  <p className="text-[0.65rem] uppercase tracking-[0.2em] text-primary-400/75 mb-1">Step</p>
+                  <p className="text-[0.65rem] uppercase tracking-[0.2em] text-primary-400/75 mb-1">Step {index + 1}</p>
                   <h3 className="font-[family-name:var(--font-heading)] text-base sm:text-lg font-semibold text-parchment-100 mb-1.5">
                     {step.title}
                   </h3>
