@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+﻿import Image from "next/image";
+import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ const ranks = [
     color: "from-emerald-rpg/25 to-teal-300/10",
     borderColor: "border-emerald-rpg/40",
     textColor: "text-emerald-200",
-    badge: "🧭",
+    badgeSrc: "/ranks/member.png",
     description: "Start as Member and auto-rank every 50 hours played.",
     free: true,
     perks: [
@@ -36,7 +37,7 @@ const ranks = [
     color: "from-mystic-400/30 to-mystic-500/10",
     borderColor: "border-mystic-400/40",
     textColor: "text-mystic-300",
-    badge: "🔮",
+    badgeSrc: "/ranks/arcane.png",
     description: "Arcane unlocks core premium quality-of-life tools and expands your build/travel flow.",
     free: false,
     perks: [
@@ -58,7 +59,7 @@ const ranks = [
     color: "from-cyan-300/25 to-sky-400/10",
     borderColor: "border-cyan-300/45",
     textColor: "text-cyan-200",
-    badge: "🌌",
+    badgeSrc: "/ranks/aetherial.png",
     description: "Aetherial broadens creative utilities and adds stronger identity perks for advanced players.",
     free: false,
     perks: [
@@ -81,7 +82,7 @@ const ranks = [
     color: "from-primary-500/25 to-crimson-500/15",
     borderColor: "border-primary-400/55",
     textColor: "text-primary-300",
-    badge: "👑",
+    badgeSrc: "/ranks/archon.png",
     description: "Archon is the top rank, built for maximum freedom, prestige, and cosmetic depth.",
     free: false,
     perks: [
@@ -129,7 +130,15 @@ export default function RanksPage() {
                         </span>
                       ) : null}
                     </div>
-                    <span className="text-4xl block mb-2">{rank.badge}</span>
+                    <div className="mb-2 flex h-28 items-center justify-center px-2">
+                      <Image
+                        src={rank.badgeSrc}
+                        alt={`${rank.name} rank emblem`}
+                        width={320}
+                        height={320}
+                        className="max-h-full w-auto max-w-full object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.35)]"
+                      />
+                    </div>
                     <h3 className={`font-[family-name:var(--font-heading)] text-2xl font-bold ${rank.textColor} mb-1 h-14 flex items-center justify-center`}>
                       {rank.name}
                     </h3>
