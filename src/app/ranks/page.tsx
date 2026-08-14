@@ -122,7 +122,7 @@ export default function RanksPage() {
               >
                 {/* Header */}
                 <div className={`p-6 pb-4 bg-gradient-to-br ${rank.color} rounded-t-lg`}>
-                  <div className="text-center flex flex-col min-h-[19.5rem]">
+                  <div className="text-center flex flex-col min-h-[17rem]">
                     <div className="h-6 mb-2 flex items-center justify-center">
                       {rank.popular ? (
                         <span className="px-3 py-1 bg-gradient-to-r from-primary-500 to-primary-400 text-charcoal-950 text-xs font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider rounded-full shadow-lg">
@@ -130,12 +130,12 @@ export default function RanksPage() {
                         </span>
                       ) : null}
                     </div>
-                    <div className="mb-2 flex h-28 items-center justify-center px-2">
+                    <div className="mb-2 flex h-32 items-center justify-center px-2">
                       <Image
                         src={rank.badgeSrc}
                         alt={`${rank.name} rank emblem`}
-                        width={320}
-                        height={320}
+                        width={384}
+                        height={384}
                         className="max-h-full w-auto max-w-full object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.35)]"
                       />
                     </div>
@@ -149,7 +149,6 @@ export default function RanksPage() {
                     <div className="font-[family-name:var(--font-heading)] text-3xl font-bold text-parchment-50">
                       {rank.price}
                     </div>
-                    <p className="text-[0.7rem] text-parchment-200/60 mt-2 h-10 leading-relaxed">{rank.upgradeNote}</p>
                   </div>
                 </div>
 
