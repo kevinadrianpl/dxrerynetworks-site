@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Springbok Green & Gold Theme ── */
+  /* Green Backgrounds */
+  --color-charcoal-950: #001f16;
+  --color-charcoal-900: #002d20;
+  --color-charcoal-800: #003b2a;
+  --color-charcoal-700: #004b36;
+  --color-charcoal-600: #005a41;
+  --color-charcoal-500: #006b4d;
+
+  --color-parchment-50: #ffffff;
+  --color-parchment-100: #f0fdf6;
+  --color-parchment-200: #dcfce7;
+  --color-parchment-300: #bbf7d0;
+
+  /* Primary (Springbok Gold) */
+  --color-primary-400: #ffd147;
+  --color-primary-500: #ffb81c;
+  --color-primary-600: #e6a210;
+  --color-primary-glow: rgba(255, 184, 28, 0.4);
+
+  --color-crimson-500: #e11d48;
+  --color-crimson-600: #be123c;
+  --color-crimson-400: #fb7185;
+
+  --color-mystic-400: #8b5cf6;
+  --color-mystic-500: #7c3aed;
+  --color-mystic-300: #a78bfa;
+
+  --color-emerald-rpg: #10b981;
+
+  /* ── Typography ── */
+  --font-heading: var(--font-nunito), system-ui, sans-serif;
+  --font-body: var(--font-nunito), system-ui, sans-serif;
+
+  /* ── Spacing ── */
+  --spacing-page: 1.25rem;
+
+  /* ── Borders ── */
+  --radius-card: 0.75rem;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow-primary: 0 0 25px var(--color-primary-glow);
+  --shadow-glow-mystic: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  font-family: var(--font-body);
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background-color: var(--color-charcoal-900);
+  color: var(--color-parchment-100);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  background-image: radial-gradient(circle at 50% 0%, var(--color-charcoal-700) 0%, transparent 60%);
+}
+
+body,
+p,
+ul,
+ol,
+li,
+a,
+button,
+input,
+textarea {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-charcoal-950); }
+::-webkit-scrollbar-thumb { background: var(--color-charcoal-500); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary-400); }
+
+/* Selection */
+::selection { background-color: var(--color-primary-400); color: #fff; }
+
+/* Ornamental Divider */
+.ornament-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-primary-400), transparent);
+  position: relative;
+}
+.ornament-divider::before {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-primary-400);
+  font-size: 1rem;
+  background: var(--color-charcoal-900);
+  padding: 0 0.75rem;
+}
+
+/* Card */
+.rpg-card {
+  background: linear-gradient(145deg, var(--color-charcoal-800), var(--color-charcoal-900));
+  border: 1px solid var(--color-charcoal-600);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+.rpg-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary-500);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+/* Button */
+.rpg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--color-charcoal-700);
+  border: 1px solid var(--color-primary-500);
+  border-radius: 0.5rem;
+  color: var(--color-parchment-50);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.rpg-btn:hover {
+  background: var(--color-charcoal-600);
+  box-shadow: var(--shadow-glow-primary);
+  transform: translateY(-1px);
+}
+.rpg-btn-primary {
+  background: linear-gradient(to right, var(--color-primary-600), var(--color-primary-400));
+  border: none;
+}
+.rpg-btn-primary:hover {
+  background: linear-gradient(to right, var(--color-primary-500), var(--color-primary-400));
+  box-shadow: var(--shadow-glow-primary);
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Glow Text */
+.glow-text {
+  text-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }

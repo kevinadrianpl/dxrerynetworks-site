@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Economy Preview</title>
+  <desc id="desc">Mock screenshot for economy guides and trading.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a3a00"/>
+      <stop offset="100%" stop-color="#201700"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="380" rx="20" fill="#2c2200" stroke="#ffd147" stroke-opacity="0.45"/>
+  <text x="120" y="155" fill="#ffffff" font-family="Nunito, sans-serif" font-size="42" font-weight="700">Economy & Trading</text>
+  <text x="120" y="205" fill="#fde68a" font-family="Nunito, sans-serif" font-size="24">Shops • player markets • auction strategy</text>
+  <rect x="120" y="250" width="320" height="150" rx="14" fill="#ffd147" fill-opacity="0.16" stroke="#ffd147"/>
+  <text x="150" y="305" fill="#ffffff" font-family="Nunito, sans-serif" font-size="28" font-weight="700">+ 12,450 coins</text>
+</svg>

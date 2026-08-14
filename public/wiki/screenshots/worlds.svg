@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Worlds Preview</title>
+  <desc id="desc">Mock screenshot for worlds and regions.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f3d5c"/>
+      <stop offset="100%" stop-color="#0d1f31"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="380" rx="20" fill="#13283d" stroke="#bbf7d0" stroke-opacity="0.35"/>
+  <text x="120" y="155" fill="#ffffff" font-family="Nunito, sans-serif" font-size="42" font-weight="700">Worlds & Regions</text>
+  <text x="120" y="205" fill="#bbf7d0" font-family="Nunito, sans-serif" font-size="24">Live map • claims • warps • portal routes</text>
+  <path d="M140 340 C240 260, 360 380, 480 320 C620 250, 740 360, 860 300 C930 265, 1010 290, 1080 260" fill="none" stroke="#bbf7d0" stroke-width="6" stroke-linecap="round"/>
+</svg>

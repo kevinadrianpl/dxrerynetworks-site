@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Getting Started Preview</title>
+  <desc id="desc">Mock screenshot showing spawn onboarding panel.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#003b2a"/>
+      <stop offset="100%" stop-color="#001f16"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="380" rx="20" fill="#002d20" stroke="#ffb81c" stroke-opacity="0.45"/>
+  <text x="120" y="155" fill="#ffffff" font-family="Nunito, sans-serif" font-size="42" font-weight="700">Getting Started</text>
+  <text x="120" y="205" fill="#bbf7d0" font-family="Nunito, sans-serif" font-size="24">Spawn onboarding • first join route • quick setup</text>
+  <rect x="120" y="260" width="180" height="56" rx="12" fill="#ffb81c" fill-opacity="0.18" stroke="#ffb81c"/>
+  <rect x="320" y="260" width="180" height="56" rx="12" fill="#ffb81c" fill-opacity="0.18" stroke="#ffb81c"/>
+  <rect x="520" y="260" width="180" height="56" rx="12" fill="#ffb81c" fill-opacity="0.18" stroke="#ffb81c"/>
+  <text x="140" y="296" fill="#ffffff" font-family="Nunito, sans-serif" font-size="20">Join</text>
+  <text x="350" y="296" fill="#ffffff" font-family="Nunito, sans-serif" font-size="20">Claim</text>
+  <text x="550" y="296" fill="#ffffff" font-family="Nunito, sans-serif" font-size="20">Build</text>
+</svg>

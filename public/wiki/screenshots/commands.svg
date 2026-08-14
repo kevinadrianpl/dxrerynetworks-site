@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Commands Preview</title>
+  <desc id="desc">Mock screenshot for command references.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2c1f5a"/>
+      <stop offset="100%" stop-color="#160d31"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="380" rx="20" fill="#1f1442" stroke="#a78bfa" stroke-opacity="0.45"/>
+  <text x="120" y="155" fill="#ffffff" font-family="Nunito, sans-serif" font-size="42" font-weight="700">Command Reference</text>
+  <text x="120" y="205" fill="#ddd6fe" font-family="Nunito, sans-serif" font-size="24">Player tools • chat • teleportation</text>
+  <rect x="120" y="245" width="960" height="48" rx="10" fill="#0f0a24"/>
+  <text x="150" y="276" fill="#a78bfa" font-family="Courier New, monospace" font-size="22">/home set base   /warp market   /msg player hello</text>
+</svg>

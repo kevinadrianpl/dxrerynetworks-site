@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Ranks Preview</title>
+  <desc id="desc">Mock screenshot for rank progression and perks.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3e2f00"/>
+      <stop offset="100%" stop-color="#1d1600"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="380" rx="20" fill="#2a2000" stroke="#ffb81c" stroke-opacity="0.45"/>
+  <text x="120" y="155" fill="#ffffff" font-family="Nunito, sans-serif" font-size="42" font-weight="700">Ranks & Perks</text>
+  <text x="120" y="205" fill="#fde68a" font-family="Nunito, sans-serif" font-size="24">Tier comparison • utility perks • progression value</text>
+  <rect x="120" y="255" width="180" height="120" rx="12" fill="#ffb81c" fill-opacity="0.15" stroke="#ffb81c"/>
+  <rect x="330" y="235" width="180" height="140" rx="12" fill="#ffb81c" fill-opacity="0.22" stroke="#ffb81c"/>
+  <rect x="540" y="215" width="180" height="160" rx="12" fill="#ffb81c" fill-opacity="0.3" stroke="#ffb81c"/>
+</svg>
