@@ -18,6 +18,7 @@ const ranks = [
     borderColor: "border-emerald-rpg/40",
     textColor: "text-emerald-200",
     badgeSrc: "/ranks/member.png",
+    badgeClassName: "max-h-[9.1rem]",
     description: "Start as Member and auto-rank every 50 hours played.",
     free: true,
     perks: [
@@ -38,6 +39,7 @@ const ranks = [
     borderColor: "border-mystic-400/40",
     textColor: "text-mystic-300",
     badgeSrc: "/ranks/arcane.png",
+    badgeClassName: "max-h-[9.35rem]",
     description: "Arcane unlocks core premium quality-of-life tools and expands your build/travel flow.",
     free: false,
     perks: [
@@ -60,6 +62,7 @@ const ranks = [
     borderColor: "border-cyan-300/45",
     textColor: "text-cyan-200",
     badgeSrc: "/ranks/aetherial.png",
+    badgeClassName: "max-h-[8.35rem] scale-[1.14]",
     description: "Aetherial broadens creative utilities and adds stronger identity perks for advanced players.",
     free: false,
     perks: [
@@ -83,6 +86,7 @@ const ranks = [
     borderColor: "border-primary-400/55",
     textColor: "text-primary-300",
     badgeSrc: "/ranks/archon.png",
+    badgeClassName: "max-h-[9.1rem] scale-[1.03]",
     description: "Archon is the top rank, built for maximum freedom, prestige, and cosmetic depth.",
     free: false,
     perks: [
@@ -95,7 +99,7 @@ const ranks = [
       "Archon-specific kit (placeholder loadout + cooldown)",
       "Includes all lower-tier perk foundations",
     ],
-    popular: true,
+      popular: false,
   },
 ];
 
@@ -115,28 +119,19 @@ export default function RanksPage() {
             {ranks.map((rank) => (
               <div
                 key={rank.name}
-                className={`rpg-card relative h-full flex flex-col border ${rank.borderColor} ${
-                  rank.popular ? "ring-1 ring-primary-400/30" : "overflow-hidden"
-                }`}
+                className={`rpg-card relative h-full flex flex-col border ${rank.borderColor} overflow-hidden`}
                 id={`rank-${rank.id}`}
               >
                 {/* Header */}
                 <div className={`p-6 pb-4 bg-gradient-to-br ${rank.color} rounded-t-lg`}>
                   <div className="text-center flex flex-col min-h-[17rem]">
-                    <div className="h-6 mb-2 flex items-center justify-center">
-                      {rank.popular ? (
-                        <span className="px-3 py-1 bg-gradient-to-r from-primary-500 to-primary-400 text-charcoal-950 text-xs font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider rounded-full shadow-lg">
-                          ★ Most Popular
-                        </span>
-                      ) : null}
-                    </div>
-                    <div className="mb-2 flex h-32 items-center justify-center px-2">
+                    <div className="mb-2 flex h-34 items-center justify-center px-1">
                       <Image
                         src={rank.badgeSrc}
                         alt={`${rank.name} rank emblem`}
                         width={384}
                         height={384}
-                        className="max-h-full w-auto max-w-full object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.35)]"
+                        className={`w-auto max-w-full object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.35)] ${rank.badgeClassName}`}
                       />
                     </div>
                     <h3 className={`font-[family-name:var(--font-heading)] text-2xl font-bold ${rank.textColor} mb-1 h-14 flex items-center justify-center`}>
