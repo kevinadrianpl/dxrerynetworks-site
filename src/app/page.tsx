@@ -99,7 +99,7 @@ export default function HomePage() {
             className="text-sm sm:text-base text-parchment-300/70 max-w-2xl mx-auto mb-8 animate-fade-in-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Build, explore, and build your kingdom in a relaxed South African Towny server with custom mod-like features and time-based ranks.
+            Survive, explore, and build your kingdom in a relaxed South African Towny server with custom mod-like features and time-based ranks.
           </p>
 
           <div
