@@ -39,7 +39,7 @@ const ranks = [
     borderColor: "border-mystic-400/40",
     textColor: "text-mystic-300",
     badgeSrc: "/ranks/arcane.png",
-    badgeClassName: "max-h-[9.35rem]",
+    badgeClassName: "max-h-[9.35rem] scale-y-[1.03]",
     description: "Arcane unlocks core premium quality-of-life tools and expands your build/travel flow.",
     free: false,
     perks: [
@@ -86,7 +86,7 @@ const ranks = [
     borderColor: "border-primary-400/55",
     textColor: "text-primary-300",
     badgeSrc: "/ranks/archon.png",
-    badgeClassName: "max-h-[9.1rem] scale-[1.03]",
+    badgeClassName: "max-h-[9.1rem] scale-[1.03] scale-y-[1.02]",
     description: "Archon is the top rank, built for maximum freedom, prestige, and cosmetic depth.",
     free: false,
     perks: [
