@@ -92,7 +92,7 @@ export default function HomePage() {
           <h1
             className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-parchment-50 mb-6 tracking-tight animate-fade-in-up"
           >
-            Cozy towns. Grand adventures.
+            Grand adventures. Cozy towns.
           </h1>
 
           <p
