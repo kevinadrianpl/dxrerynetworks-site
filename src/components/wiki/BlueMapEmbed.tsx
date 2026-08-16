@@ -3,35 +3,31 @@
 import { useMemo, useState } from "react";
 
 interface MapWorld {
-  id: string;
-  name: string;
+  key: string;
+  label: string;
+  embedUrl: string;
 }
-
-const BLUE_MAP_BASE_URL = "http://102.212.60.73:26357/";
 
 const mapWorlds: MapWorld[] = [
   {
-    id: "forgotton_lands",
-    name: "forgotton_lands",
+    key: "forgotton_lands",
+    label: "forgotton_lands",
+    embedUrl: "http://102.212.60.73:26357/?world=forgotton_lands",
   },
   {
-    id: "new_horizons",
-    name: "new_horizons",
+    key: "new_horizons",
+    label: "new_horizons",
+    embedUrl: "http://102.212.60.73:26357/?world=new_horizons",
   },
 ];
 
 export function BlueMapEmbed() {
-  const [selectedWorldId, setSelectedWorldId] = useState(mapWorlds[0]?.id ?? "");
+  const [selectedWorldKey, setSelectedWorldKey] = useState(mapWorlds[0]?.key ?? "");
 
   const selectedWorld = useMemo(
-    () => mapWorlds.find((world) => world.id === selectedWorldId) ?? mapWorlds[0],
-    [selectedWorldId]
+    () => mapWorlds.find((world) => world.key === selectedWorldKey) ?? mapWorlds[0],
+    [selectedWorldKey]
   );
-
-  const selectedWorldUrl = useMemo(() => {
-    const params = new URLSearchParams({ world: selectedWorld.id });
-    return `${BLUE_MAP_BASE_URL}?${params.toString()}`;
-  }, [selectedWorld.id]);
 
   if (!selectedWorld) {
     return null;
@@ -62,13 +58,13 @@ export function BlueMapEmbed() {
         </label>
         <select
           id="world-map-select"
-          value={selectedWorld.id}
-          onChange={(event) => setSelectedWorldId(event.target.value)}
+          value={selectedWorld.key}
+          onChange={(event) => setSelectedWorldKey(event.target.value)}
           className="rpg-btn rounded-xl border-primary-400/40 bg-charcoal-800/95 px-4 py-3 text-sm font-bold text-parchment-50 shadow-[0_0_20px_rgba(0,0,0,0.2)] outline-none"
         >
           {mapWorlds.map((world) => (
-            <option key={world.id} value={world.id}>
-              {world.name}
+            <option key={world.key} value={world.key}>
+              {world.label}
             </option>
           ))}
         </select>
@@ -76,8 +72,9 @@ export function BlueMapEmbed() {
 
       <div className="rounded-xl overflow-hidden border border-charcoal-600/60 bg-charcoal-900/70">
         <iframe
-          src={selectedWorldUrl}
-          title={`${selectedWorld.name} BlueMap`}
+          key={selectedWorld.key}
+          src={selectedWorld.embedUrl}
+          title={`${selectedWorld.label} BlueMap`}
           className="w-full h-[420px] sm:h-[520px]"
           loading="lazy"
         />
@@ -88,7 +85,7 @@ export function BlueMapEmbed() {
           If the embed is blocked by your browser, open the selected map in a new tab.
         </p>
         <a
-          href={selectedWorldUrl}
+          href={selectedWorld.embedUrl}
           target="_blank"
           rel="noreferrer"
           className="rpg-btn rounded-2xl border-primary-400/40 bg-charcoal-800/95 px-5 py-2.5 text-sm font-bold text-parchment-50 shadow-[0_0_24px_rgba(0,0,0,0.2)] hover:bg-charcoal-700"
