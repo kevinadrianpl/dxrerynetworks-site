@@ -13,8 +13,8 @@ const features = [
   },
   {
     icon: "⚒️",
-    title: "Jobs & Rewards",
-    description: "Pick a profession, accept a quest, gather your riches to spend on gear and upgrades.",
+    title: "Jobs & Quests",
+    description: "Pick a profession, take on quests, and grow your income as you play.",
     href: "/wiki/skills-and-leveling",
     color: "from-emerald-rpg/20 to-emerald-rpg/5",
   },
@@ -24,6 +24,41 @@ const features = [
     description: "Build towns, trade with others, and grow together in a non-PVP social world.",
     href: "/wiki/nation-guide",
     color: "from-mystic-400/20 to-mystic-500/5",
+  },
+  {
+    icon: "🧭",
+    title: "Player Warps",
+    description: "Create and visit player warps so shops, farms, and landmarks are easy to reach.",
+    href: "/wiki/player-warps-guide",
+    color: "from-sky-400/20 to-cyan-500/5",
+  },
+  {
+    icon: "🦊",
+    title: "Safari Nets",
+    description: "Catch and transport mobs safely with tools that make gathering and moving easier.",
+    href: "/wiki/world-overview",
+    color: "from-amber-400/20 to-orange-500/5",
+  },
+  {
+    icon: "✨",
+    title: "MCMMO & Leveling",
+    description: "Level skills naturally over time and unlock stronger progression as you keep playing.",
+    href: "/wiki/skills-and-leveling",
+    color: "from-violet-400/20 to-fuchsia-500/5",
+  },
+  {
+    icon: "🪦",
+    title: "ProDeathChests",
+    description: "Keep your items safer after death with a better recovery flow and less frustration.",
+    href: "/wiki/welcome-guide",
+    color: "from-rose-400/20 to-red-500/5",
+  },
+  {
+    icon: "🎣",
+    title: "Custom Gathering",
+    description: "Custom fishing, mining, and farming systems that keep everyday gameplay rewarding.",
+    href: "/wiki/skills-and-leveling",
+    color: "from-teal-400/20 to-emerald-500/5",
   },
   {
     icon: "🎁",
@@ -166,17 +201,17 @@ export default function HomePage() {
               Why players stay
             </h2>
             <p className="text-parchment-300/60 max-w-lg mx-auto">
-              A gentle blend of survival, community, and rewards in a cozy server world.
+              A blend of survival, community, and rewards in a cozy towny world.
             </p>
             <div className="ornament-divider mt-6 max-w-xs mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
               <Link
                 key={feature.title}
                 href={feature.href}
-                className="rpg-card p-6 group block"
+                className="rpg-card h-full p-6 group block"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -187,13 +222,13 @@ export default function HomePage() {
                 </h3>
                 <p className="text-sm text-parchment-300/60 leading-relaxed">
                   {feature.description}
+                  <span className="ml-1 inline-flex items-center gap-1 text-xs text-primary-400/70 group-hover:text-primary-400 transition-colors duration-300">
+                    Learn more
+                    <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </p>
-                <span className="inline-flex items-center gap-1 mt-4 text-xs text-primary-400/70 group-hover:text-primary-400 transition-colors duration-300">
-                  Learn more
-                  <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
               </Link>
             ))}
           </div>
