@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 interface MapWorld {
   label: string;
 }
@@ -19,6 +21,12 @@ const mapWorlds: MapWorld[] = [
 ];
 
 export function BlueMapEmbed() {
+  const [isSecurePage, setIsSecurePage] = useState(false);
+
+  useEffect(() => {
+    setIsSecurePage(window.location.protocol === "https:");
+  }, []);
+
   return (
     <div className="mt-10 rpg-card p-4 sm:p-6 border border-primary-400/30" id="wiki-live-map">
       <div className="flex items-start gap-4 mb-4">
@@ -44,18 +52,39 @@ export function BlueMapEmbed() {
         </p>
       </div>
 
-      <div className="rounded-xl overflow-hidden border border-charcoal-600/60 bg-charcoal-900/70">
-        <iframe
-          src={BLUE_MAP_URL}
-          title="Live BlueMap"
-          className="w-full h-[420px] sm:h-[520px]"
-          loading="lazy"
-        />
-      </div>
+      {isSecurePage ? (
+        <div className="rounded-xl border border-charcoal-600/60 bg-charcoal-900/70 p-6 sm:p-8 text-center">
+          <p className="font-[family-name:var(--font-heading)] text-lg text-parchment-100">
+            BlueMap can&apos;t be embedded on the public site yet.
+          </p>
+          <p className="mt-3 text-sm text-parchment-300/70 max-w-2xl mx-auto leading-relaxed">
+            The live map server is currently served over HTTP, while the public website is served over HTTPS. Modern browsers block that combination inside iframes.
+          </p>
+          <a
+            href={BLUE_MAP_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="rpg-btn mt-5 rounded-2xl border-primary-400/40 bg-charcoal-800/95 px-5 py-2.5 text-sm font-bold text-parchment-50 shadow-[0_0_24px_rgba(0,0,0,0.2)] hover:bg-charcoal-700"
+          >
+            Open BlueMap
+          </a>
+        </div>
+      ) : (
+        <div className="rounded-xl overflow-hidden border border-charcoal-600/60 bg-charcoal-900/70">
+          <iframe
+            src={BLUE_MAP_URL}
+            title="Live BlueMap"
+            className="w-full h-[420px] sm:h-[520px]"
+            loading="lazy"
+          />
+        </div>
+      )}
 
       <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <p className="text-xs text-parchment-300/50">
-          If the embed is blocked by your browser, open BlueMap in a new tab.
+          {isSecurePage
+            ? "BlueMap opens in a new tab on the public site until HTTPS is enabled on the map server."
+            : "If the embed is blocked by your browser, open BlueMap in a new tab."}
         </p>
         <a
           href={BLUE_MAP_URL}
