@@ -80,21 +80,21 @@ export function BlueMapEmbed() {
         </div>
       )}
 
-      <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <p className="text-xs text-parchment-300/50">
-          {isSecurePage
-            ? "BlueMap opens in a new tab on the public site until HTTPS is enabled on the map server."
-            : "If the embed is blocked by your browser, open BlueMap in a new tab."}
-        </p>
-        <a
-          href={BLUE_MAP_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="rpg-btn rounded-2xl border-primary-400/40 bg-charcoal-800/95 px-5 py-2.5 text-sm font-bold text-parchment-50 shadow-[0_0_24px_rgba(0,0,0,0.2)] hover:bg-charcoal-700"
-        >
-          Open BlueMap
-        </a>
-      </div>
+      {!isSecurePage ? (
+        <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <p className="text-xs text-parchment-300/50">
+            If the embed is blocked by your browser, open BlueMap in a new tab.
+          </p>
+          <a
+            href={BLUE_MAP_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="rpg-btn rounded-2xl border-primary-400/40 bg-charcoal-800/95 px-5 py-2.5 text-sm font-bold text-parchment-50 shadow-[0_0_24px_rgba(0,0,0,0.2)] hover:bg-charcoal-700"
+          >
+            Open BlueMap
+          </a>
+        </div>
+      ) : null}
     </div>
   );
 }
