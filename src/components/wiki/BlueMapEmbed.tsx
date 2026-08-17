@@ -21,7 +21,7 @@ const mapWorlds: MapWorld[] = [
 ];
 
 export function BlueMapEmbed() {
-  const [isSecurePage, setIsSecurePage] = useState(false);
+  const [isSecurePage, setIsSecurePage] = useState<boolean | null>(null);
 
   useEffect(() => {
     setIsSecurePage(window.location.protocol === "https:");
@@ -52,7 +52,11 @@ export function BlueMapEmbed() {
         </p>
       </div>
 
-      {isSecurePage ? (
+      {isSecurePage === null ? (
+        <div className="rounded-xl border border-charcoal-600/60 bg-charcoal-900/70 p-6 sm:p-8 text-center">
+          <p className="text-sm text-parchment-300/70">Loading map...</p>
+        </div>
+      ) : isSecurePage ? (
         <div className="rounded-xl border border-charcoal-600/60 bg-charcoal-900/70 p-6 sm:p-8 text-center">
           <p className="font-[family-name:var(--font-heading)] text-lg text-parchment-100">
             BlueMap can&apos;t be embedded on the public site yet.
@@ -80,7 +84,7 @@ export function BlueMapEmbed() {
         </div>
       )}
 
-      {!isSecurePage ? (
+      {isSecurePage === false ? (
         <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-xs text-parchment-300/50">
             If the embed is blocked by your browser, open BlueMap in a new tab.
