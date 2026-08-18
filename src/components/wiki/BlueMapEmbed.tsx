@@ -15,9 +15,6 @@ const mapWorlds: MapWorld[] = [
   {
     label: "new_horizons",
   },
-  {
-    label: "spawn",
-  },
 ];
 
 export function BlueMapEmbed() {

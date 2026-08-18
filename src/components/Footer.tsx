@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { CopyIP } from "@/components/ui/CopyIP";
 
@@ -14,11 +15,17 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-charcoal-950 font-bold font-[family-name:var(--font-heading)] text-base">
-                D
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg ring-1 ring-primary-400/25">
+                <Image
+                  src="/logo/server-icon.png"
+                  alt="Dxrery Networks logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain scale-[2.15] translate-y-[1px] drop-shadow-[0_8px_14px_rgba(0,0,0,0.45)]"
+                />
               </div>
-              <span className="font-[family-name:var(--font-heading)] text-lg font-semibold text-parchment-100 tracking-wide">
-                Dxrery <span className="text-primary-400">Networks</span>
+              <span className="font-[family-name:var(--font-heading)] text-base sm:text-lg font-semibold uppercase tracking-[0.22em] text-primary-400/90 leading-none">
+                Dxrery Networks
               </span>
             </Link>
             <p className="text-sm text-parchment-300/60 leading-relaxed max-w-xs">
