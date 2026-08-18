@@ -1,101 +1,62 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-interface MapWorld {
+interface MapLink {
   label: string;
+  href: string;
+  description: string;
 }
 
-const BLUE_MAP_URL = "http://102.212.60.73:26357/";
-
-const mapWorlds: MapWorld[] = [
+const mapLinks: MapLink[] = [
   {
-    label: "forgotton_lands",
+    label: "forgotten_lands",
+    href: "http://102.212.60.73:26357/#forgotten_lands:0:0:0:1500:0:0:0:1:flat",
+    description: "Walk the ancient roads of the first realm, where veteran towns and old alliances were forged.",
   },
   {
     label: "new_horizons",
+    href: "http://102.212.60.73:26357/#new_horizons:0:0:0:1500:0:0:0:1:flat",
+    description: "Chart fresh frontiers in a newborn world, rich with untamed land and future legends.",
   },
 ];
 
 export function BlueMapEmbed() {
-  const [isSecurePage, setIsSecurePage] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    setIsSecurePage(window.location.protocol === "https:");
-  }, []);
-
   return (
     <div className="mt-10 rpg-card p-4 sm:p-6 border border-primary-400/30" id="wiki-live-map">
-      <div className="flex items-start gap-4 mb-4">
+      <div className="flex flex-col items-center text-center gap-3 mb-4">
         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-400/20 to-primary-600/5 flex items-center justify-center text-xl shrink-0">
           🗺️
         </div>
         <div>
           <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-parchment-100">
-            Live BlueMap
+            World Maps
           </h2>
           <p className="text-sm text-parchment-300/60 mt-1">
-            View your towns, builds, and landmarks in real time.
+            Choose a world below to open its BlueMap view.
           </p>
         </div>
       </div>
 
-      <div className="mb-4 rounded-xl border border-charcoal-600/60 bg-charcoal-900/50 px-4 py-3">
-        <p className="text-xs font-[family-name:var(--font-heading)] uppercase tracking-[0.18em] text-parchment-300/60">
-          Available maps inside BlueMap
-        </p>
-        <p className="mt-2 text-sm text-parchment-200/80">
-          {mapWorlds.map((world) => world.label).join(" and ")}
-        </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {mapLinks.map((world) => (
+          <div
+            key={world.label}
+            className="rounded-xl border border-charcoal-600/60 bg-charcoal-900/60 p-4 flex flex-col gap-3 text-center items-center"
+          >
+            <p className="font-[family-name:var(--font-heading)] text-sm uppercase tracking-[0.14em] text-parchment-100">
+              {world.label}
+            </p>
+            <p className="text-sm text-parchment-300/70 leading-relaxed flex-1">
+              {world.description}
+            </p>
+            <a
+              href={world.href}
+              target="_blank"
+              rel="noreferrer"
+              className="rpg-btn rounded-2xl border-primary-400/40 bg-charcoal-800/95 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.22em] text-parchment-50 shadow-[0_0_24px_rgba(0,0,0,0.2)] hover:bg-charcoal-700 w-full justify-center"
+            >
+              Open World
+            </a>
+          </div>
+        ))}
       </div>
-
-      {isSecurePage === null ? (
-        <div className="rounded-xl border border-charcoal-600/60 bg-charcoal-900/70 p-6 sm:p-8 text-center">
-          <p className="text-sm text-parchment-300/70">Loading map...</p>
-        </div>
-      ) : isSecurePage ? (
-        <div className="rounded-xl border border-charcoal-600/60 bg-charcoal-900/70 p-6 sm:p-8 text-center">
-          <p className="font-[family-name:var(--font-heading)] text-lg text-parchment-100">
-            BlueMap can&apos;t be embedded on the public site yet.
-          </p>
-          <p className="mt-3 text-sm text-parchment-300/70 max-w-2xl mx-auto leading-relaxed">
-            The live map server is currently served over HTTP, while the public website is served over HTTPS. Modern browsers block that combination inside iframes.
-          </p>
-          <a
-            href={BLUE_MAP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="rpg-btn mt-5 rounded-2xl border-primary-400/40 bg-charcoal-800/95 px-5 py-2.5 text-sm font-bold text-parchment-50 shadow-[0_0_24px_rgba(0,0,0,0.2)] hover:bg-charcoal-700"
-          >
-            Open BlueMap
-          </a>
-        </div>
-      ) : (
-        <div className="rounded-xl overflow-hidden border border-charcoal-600/60 bg-charcoal-900/70">
-          <iframe
-            src={BLUE_MAP_URL}
-            title="Live BlueMap"
-            className="w-full h-[420px] sm:h-[520px]"
-            loading="lazy"
-          />
-        </div>
-      )}
-
-      {isSecurePage === false ? (
-        <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-xs text-parchment-300/50">
-            If the embed is blocked by your browser, open BlueMap in a new tab.
-          </p>
-          <a
-            href={BLUE_MAP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="rpg-btn rounded-2xl border-primary-400/40 bg-charcoal-800/95 px-5 py-2.5 text-sm font-bold text-parchment-50 shadow-[0_0_24px_rgba(0,0,0,0.2)] hover:bg-charcoal-700"
-          >
-            Open BlueMap
-          </a>
-        </div>
-      ) : null}
     </div>
   );
 }
